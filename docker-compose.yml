@@ -1,5 +1,3 @@
-version: "3.7"
-
 services:
     # image project
     app:
@@ -68,6 +66,13 @@ services:
             - laravel
         volumes:
             - ./prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml
+
+    grafana:
+        image: grafana/grafana:10.2.2
+        ports:
+            - 3000:3000
+        networks:
+            - laravel
 
 networks:
     laravel:

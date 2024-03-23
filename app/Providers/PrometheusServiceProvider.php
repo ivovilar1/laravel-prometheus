@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Customer;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Prometheus\Collectors\Horizon\CurrentMasterSupervisorCollector;
 use Spatie\Prometheus\Collectors\Horizon\CurrentProcessesPerQueueCollector;
@@ -20,11 +23,11 @@ class PrometheusServiceProvider extends ServiceProvider
          * Here you can register all the exporters that you
          * want to export to prometheus
          */
-        Prometheus::addGauge('My gauge')
-            ->value(function() {
-                return 123.45;
-            });
 
+        Prometheus::addGauge('User count')
+            ->value(fn() => User::query()->count());
+        Prometheus::addGauge('Customer count')
+            ->value(fn() => Customer::query()->count());
         /*
          * Uncomment this line if you want to export
          * all Horizon metrics to prometheus
