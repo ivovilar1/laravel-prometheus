@@ -66,6 +66,8 @@ services:
             - 9090:9090
         networks:
             - laravel
+        volumes:
+            - ./prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml
 
 networks:
     laravel:
