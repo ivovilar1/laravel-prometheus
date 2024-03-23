@@ -60,6 +60,12 @@ services:
             - 8025:8025 # web ui
         networks:
             - laravel
+    prometheus:
+        image: prom/prometheus:v2.47.2
+        ports:
+            - 9090:9090
+        networks:
+            - laravel
 
 networks:
     laravel:
