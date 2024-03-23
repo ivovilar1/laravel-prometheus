@@ -15,7 +15,8 @@
         "laravel/tinker": "^2",
         "livewire/livewire": "^3",
         "owen-it/laravel-auditing": "^13",
-        "robsontenorio/mary": "^1"
+        "robsontenorio/mary": "^1",
+        "spatie/laravel-prometheus": "^1.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.9",
